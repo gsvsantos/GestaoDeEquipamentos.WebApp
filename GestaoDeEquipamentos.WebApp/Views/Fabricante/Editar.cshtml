@@ -1,0 +1,40 @@
+﻿@using GestaoDeEquipamentos.WebApp.Models
+
+@model EditarFabricanteViewModel;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Edição de Fabricante - Gestão de Equipamentos</title>
+</head>
+<body>
+    <h1>Gestão de Equipamentos</h1>
+
+    <h3>Edição de Fabricante</h3>
+
+    <form action="/fabricantes/editar/@Model.Id" method="post">
+        <label for="nome">Nome do Fabricante:</label>
+        <br />
+        <input type="text" id="nome" name="nome" value="@Model.Nome"/>
+
+        <br />
+
+        <label>E-mail do Fabricante:
+        <br />
+        <input type="text" name="email" value="@Model.Email"/>
+        </label>
+        
+        <br />
+
+        <label>Telefone do Fabricante:</label>
+        <br />
+        <input type="text" name="telefone" value="@Model.Telefone"/>
+
+        <hr />
+
+        <button type="submit">Gravar</button>
+    </form>
+
+</body>
+</html>

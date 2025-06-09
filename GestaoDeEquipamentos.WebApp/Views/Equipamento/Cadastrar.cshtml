@@ -1,0 +1,56 @@
+﻿@using GestaoDeEquipamentos.WebApp.Models
+
+@model CadastrarEquipamentoViewModel;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Cadastro de Equipamento - Gestão de Equipamentos</title>
+</head>
+<body>
+    <h1>Gestão de Equipamentos</h1>
+
+    <hr />
+
+    <a href="/">Página Inicial</a> /
+    <a href="/equipamentos/visualizar">Visualizar Equipamentos</a>
+
+    <hr />
+
+    <h3>Cadastro de Equipamento</h3>
+
+    <form action="/equipamentos/cadastrar" method="post">
+        <label for="nome">Nome do Equipamento:</label>
+        <br />
+        <input type="text" id="nome" name="nome" />
+
+        <br />
+
+        <label for="precoAquisicao">Preço de Aquisição:</label>
+        <br />
+        <input type="text" id="precoAquisicao" name="precoAquisicao" />
+
+        <br />
+
+        <label for="dataFabricacao">Data de Fabricação:</label>
+        <br />
+        <input type="date" id="dataFabricacao" name="dataFabricacao" />
+
+        <br />
+
+        <label for="fabricanteID">Fabricante do Equipamento:</label>
+        <br />
+        <select id="fabricanteID" name="fabricanteID">
+            @foreach (var f in Model.FabricantesDisponiveis)
+            {
+                <option value="@f.Id">@f.Nome</option>
+            }
+        </select>
+
+        <hr />
+
+        <button type="submit">Gravar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@using GestaoDeEquipamentos.WebApp.Models
+
+@model EditarEquipamentoViewModel;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Edição de Equipamento - Gestão de Equipamentos</title>
+</head>
+<body>
+    <h1>Gestão de Equipamentos</h1>
+
+    <h3>Edição de Equipamento</h3>
+
+    <form action="/equipamentos/editar/@Model.Id" method="post">
+        <label for="nome">Nome do Equipamento:</label>
+        <br />
+        <input type="text" id="nome" name="nome" value="@Model.Nome"/>
+
+        <br />
+
+        <label for="precoAquisicao">Preço de Aquisição:</label>
+        <br />
+        <input type="text" id="precoAquisicao" name="precoAquisicao" value="@Model.PrecoAquisicao"/>
+
+        <br />
+
+        <label for="dataFabricacao">Data de Fabricação:</label>
+        <br />
+        <input type="date" id="dataFabricacao" name="dataFabricacao" value="@Model.DataFabricacao.ToString("yyyy-MM-dd")"/>
+
+        <br />
+
+        <label for="fabricanteID">Fabricante do Equipamento:</label>
+        <br />
+        <select id="fabricanteID" name="fabricanteID">
+            @foreach (var f in Model.FabricantesDisponiveis)
+            {
+                    <option value="@f.Id" selected="@(f.Id == Model.FabricanteId)">@f.Nome</option>
+            }
+        </select>
+
+        <hr />
+
+        <button type="submit">Gravar</button>
+    </form>
+</body>
+</html>

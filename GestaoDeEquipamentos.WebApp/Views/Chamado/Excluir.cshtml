@@ -1,0 +1,24 @@
+﻿@using GestaoDeEquipamentos.WebApp.Models;
+
+@model ExcluirChamadoViewModel;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Exclusão de Chamado - Gestão de Equipamentos</title>
+</head>
+<body>
+    <h1>Gestão de Equipamentos</h1>
+
+    <h3>Exclusão de Chamado</h3>
+
+    <p>Você realmente deseja excluir o registro '@Model.Titulo'?</p>
+
+    <form action="/chamados/excluir/@Model.Id" method="post">
+        <button type="submit">Confirmar</button>
+        <a type="button" href="/chamados/visualizar">Voltar</a>
+    </form>
+
+</body>
+</html>

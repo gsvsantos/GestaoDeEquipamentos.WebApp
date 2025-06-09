@@ -1,0 +1,43 @@
+﻿@using GestaoDeEquipamentos.WebApp.Models
+
+@model EditarChamadoViewModel;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Edição de Chamado - Gestão de Equipamentos</title>
+</head>
+<body>
+    <h1>Gestão de Equipamentos</h1>
+
+    <h3>Edição de Chamado</h3>
+
+    <form action="/chamados/editar/@Model.Id" method="post">
+        <label for="titulo">Título do Chamado:</label>
+        <br />
+        <input type="text" id="titulo" name="titulo" value="@Model.Titulo"/>
+
+        <br />
+
+        <label for="descricao">Descrição do Chamado:</label>
+        <br />
+        <input type="text" id="descricao" name="descricao" value="@Model.Descricao"/>
+
+        <br />
+
+        <label for="equipamentoID">Equipamento do Chamado:</label>
+        <br />
+        <select id="equipamentoID" name="equipamentoID">
+            @foreach (var e in Model.EquipamentosDisponiveis)
+            {
+                        <option value="@e.Id" selected="@(e.Id == Model.EquipamentoId)">@e.Nome</option>
+            }
+        </select>
+
+        <hr />
+
+        <button type="submit">Gravar</button>
+    </form>
+</body>
+</html>

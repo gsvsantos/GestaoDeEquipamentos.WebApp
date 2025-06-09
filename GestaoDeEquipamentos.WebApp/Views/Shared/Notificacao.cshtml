@@ -1,0 +1,26 @@
+@using GestaoDeEquipamentos.WebApp.Models
+
+@model NotificacaoViewModel;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Notificação - @Model.Titulo</title>
+</head>
+<body>
+<h1>@Model.Titulo</h1>
+
+<hr />
+
+<a href="/">Menu Principal</a> /
+<a href="/@Model.Caminho/visualizar">@Model.Titulo</a>
+
+<hr />
+
+<h3>Notificação</h3>
+
+<p>@Model.Mensagem</p>
+
+</body>
+</html>

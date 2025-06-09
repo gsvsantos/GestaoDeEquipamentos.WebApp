@@ -1,0 +1,36 @@
+﻿@using GestaoDeEquipamentos.WebApp.Models
+
+@model VisualizarChamadosViewModel;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<title>Visualização de Chamados - Gestão de Equipamentos</title>
+</head>
+<body>
+<h1>Gestão de Equipamentos</h1>
+
+<hr />
+
+<a href="/">Voltar</a> /
+<a href="/chamados/cadastrar">Cadastrar Novo Chamado</a> /
+
+<hr />
+
+<h3>Visualização de Chamados</h3>
+
+<ul>
+	@if (Model.Registros.Count == 0)
+	{
+		<li>Nenhum chamado cadastrado.</li>
+	}
+
+	@foreach (DataChamadoViewModel f in Model.Registros)
+	{
+		<li>@f / <a href="/chamados/editar/@f.Id">Editar</a> /
+			<a href="/chamados/excluir/@f.Id">Excluir</a> </li>
+	}
+</ul>
+</body>
+</html>
